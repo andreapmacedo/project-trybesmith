@@ -11,7 +11,7 @@ export async function getAll() {
 export async function create(req: Request<unknown, unknown, ProductBody>, res: Response<Product>) {
   // const body = req.body;
 
-  const product = await createProduct(req.body);
+  const createdProduct = await createProduct(req.body);
 
-  return res.json(product);
+  res.status(201).json(createdProduct);
 }

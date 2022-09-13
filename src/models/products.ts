@@ -15,17 +15,16 @@ export async function getAll() {
 }
 
 export async function create(product: ProductBody): Promise<Product> {
-  const query = 'INSERT INTO products (name, amount, orderId) VALUES (?, ?, ?)';
-  // `INSERT INTO movies (name, amount, orderId) VALUES (?, ?, ?)`
+  const query = 'INSERT INTO Trybesmith.Products(name, amount) VALUE (?, ?)';
+  
   const [result] = await connection.execute<ResultSetHeader>(
     query,
-    [product.name, product.amount, product.orderId],
+    [product.name, product.amount],
   );
   
   return {
     id: result.insertId,
     name: product.name,
     amount: product.amount,
-    orderId: product.orderId,
   };
 }
