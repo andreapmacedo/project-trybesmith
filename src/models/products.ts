@@ -1,17 +1,19 @@
-// import { RowDataPacket, ResultSetHeader } from 'mysql2/promise';
-import { ResultSetHeader } from 'mysql2/promise';
+import { RowDataPacket, ResultSetHeader } from 'mysql2/promise';
+// import { ResultSetHeader } from 'mysql2/promise';
 import connection from './connection';
 import { Product, ProductBody } from '../types';
 
-// type ProductData = {
-//   id: number,
-//   name: string,
-//   amount: number,
-//   orderId: number,
-// } & RowDataPacket;
+type ProductData = {
+  id: number,
+  name: string,
+  amount: number,
+} & RowDataPacket;
 
 export async function getAll() {
-  return 0;
+  const query = 'SELECT * from Trybesmith.Products';
+  const [result] = await connection.execute<ProductData[]>(query);
+  // return result as Movie[];
+  return result;
 }
 
 export async function create(product: ProductBody): Promise<Product> {
