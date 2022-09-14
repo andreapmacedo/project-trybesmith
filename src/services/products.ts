@@ -1,6 +1,5 @@
 import { create, getAll } from '../models/products';
 import { Product, ProductBody } from '../types';
-// import { ProductBody } from '../types';
 
 export async function getAllList(): Promise<Product[]> {
   // const movies = await getAll();
