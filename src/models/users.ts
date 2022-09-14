@@ -17,12 +17,7 @@ export default async function create(user: UserBody): Promise<IToken> {
   const createdToken = createToken({
     id: result.insertId,
   });
-  // const token = createToken({
-  //   id: result.insertId,
-  // });
-
-  console.log('token', createToken);
-  
+ 
   return { token: createdToken };
 
   // const { insertId } = result;

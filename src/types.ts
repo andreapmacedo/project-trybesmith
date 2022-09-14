@@ -1,3 +1,5 @@
+import { RowDataPacket } from 'mysql2/promise';
+
 export interface Product {
   id: number,
   name: string,
@@ -32,4 +34,10 @@ export interface IUser {
 
 export interface IToken {
   token: string,
+}
+
+export interface IOrder extends RowDataPacket {
+  id?: number,
+  userId: number,
+  productId: number[],
 }
